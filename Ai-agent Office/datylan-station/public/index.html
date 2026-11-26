@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DATYLAN STATION 🚀</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header with station name and mode toggle -->
+  <header id="station-header">
+    <h1>🚀 DATYLAN STATION</h1>
+    <div id="mode-toggle">
+      <button id="btn-demo" class="mode-btn active">🎮 DEMO</button>
+      <button id="btn-live" class="mode-btn">🟢 LIVE</button>
+    </div>
+    <div id="connection-status">
+      <span id="status-dot" class="dot offline"></span>
+      <span id="status-text">Connecting...</span>
+    </div>
+  </header>
+
+  <!-- Offline banner -->
+  <div id="offline-banner" class="hidden">
+    ⚠️ ขาดการเชื่อมต่อ — กำลังเชื่อมต่อใหม่...
+  </div>
+
+  <!-- Main layout -->
+  <main id="main-container">
+    <!-- Game area -->
+    <section id="game-section">
+      <!-- Room tabs -->
+      <nav id="room-tabs">
+        <button class="room-tab active" data-room="content">📝 Content Room</button>
+        <button class="room-tab" data-room="game">🎮 Game Room</button>
+        <button class="room-tab" data-room="bridge">🌟 Bridge</button>
+      </nav>
+      <!-- Canvas -->
+      <div id="canvas-wrapper">
+        <canvas id="game-canvas"></canvas>
+      </div>
+      <!-- Character info bar (shown when character is clicked) -->
+      <div id="char-info-bar" class="hidden">
+        <span id="char-info-name"></span>
+        <span id="char-info-role"></span>
+        <span id="char-info-status"></span>
+        <button id="char-info-close">✕</button>
+      </div>
+    </section>
+
+    <!-- Command Panel -->
+    <section id="command-panel">
+      <!-- Task input -->
+      <div id="task-input-area">
+        <h2>📝 สั่งงาน</h2>
+        <textarea id="task-input" placeholder="พิมพ์โจทย์งานที่นี่..." rows="4"></textarea>
+        
+        <!-- Character selector -->
+        <div id="char-selector">
+          <label>ส่งให้:</label>
+          <div id="char-buttons">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Mode selector -->
+        <div id="mode-selector">
+          <label>โหมด:</label>
+          <div id="mode-buttons">
+            <button class="mode-opt active" data-mode="single">👤 ส่งตัวเดียว</button>
+            <button class="mode-opt" data-mode="chain">🔗 ส่งต่อเป็นสาย</button>
+            <button class="mode-opt" data-mode="parallel">⚡ ส่งพร้อมกัน</button>
+          </div>
+        </div>
+
+        <!-- Chain order (shown in chain mode) -->
+        <div id="chain-config" class="hidden">
+          <label>ลำดับส่งต่อ:</label>
+          <div id="chain-list">
+            <!-- Drag-sortable character list -->
+          </div>
+        </div>
+
+        <!-- Send button -->
+        <div id="send-area">
+          <button id="btn-send" disabled>🚀 ส่งงาน</button>
+          <button id="btn-cancel" class="hidden">⏹ หยุด</button>
+        </div>
+      </div>
+
+      <!-- Results area -->
+      <div id="results-area">
+        <h2>📋 ผลลัพธ์</h2>
+        <div id="results-container">
+          <div id="no-results">ยังไม่มีผลลัพธ์ — ส่งงานให้ทีมเลย!</div>
+        </div>
+      </div>
+
+      <!-- History -->
+      <div id="history-area">
+        <h2 id="history-toggle">📜 ประวัติ <span class="toggle-arrow">▼</span></h2>
+        <div id="history-container" class="collapsed">
+          <div id="history-list"></div>
+          <button id="btn-load-more" class="hidden">โหลดเพิ่ม...</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/game.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
