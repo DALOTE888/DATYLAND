@@ -1,0 +1,14 @@
+{
+  "name": "datylan-station",
+  "version": "1.0.0",
+  "description": "DATYLAN STATION - AI Office Game (Pixel Art)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/test.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ws": "^8.18.0"
+  }
+}
